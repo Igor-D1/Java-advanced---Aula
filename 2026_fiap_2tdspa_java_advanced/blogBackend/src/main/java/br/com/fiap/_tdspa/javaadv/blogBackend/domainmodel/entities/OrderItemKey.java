@@ -1,36 +1,26 @@
 package br.com.fiap._tdspa.javaadv.blogBackend.domainmodel.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Objects;
 import java.util.UUID;
 
 @Embeddable
+@NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+
+
+
 public class OrderItemKey {
+
+    @Column( name = "ORDER_ID" )
     @Getter @Setter UUID orderId;
+
+    @Column( name = "ORDER_ITEM" )
     @Getter @Setter UUID orderItemId;
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        OrderItemKey that = (OrderItemKey) o;
-        return Objects.equals(orderId, that.orderId) && Objects.equals(orderItemId, that.orderItemId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(orderId, orderItemId);
-    }
-
-    @Override
-    public String toString() {
-        return "OrderItemKey{" +
-                "orderId=" + orderId +
-                ", orderItemId=" + orderItemId +
-                '}';
-    }
 }

@@ -51,6 +51,9 @@ public class User {
     )
     private @Getter @Setter Set<Role> roles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Order> orders;
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

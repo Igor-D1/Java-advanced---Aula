@@ -19,7 +19,7 @@ public class OrderItem {
     @Column(name = "PRICE", precision = 10, scale = 2)
     private @Getter @Setter double price;
 
-    @Column(name = "QUANTITY", scale = 0)
+    @Column(name = "QUANTITY")
     private @Getter @Setter int quantity;
 
     @ManyToOne

@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 
-import java.util.Objects;
 import java.util.UUID;
 
 @Embeddable

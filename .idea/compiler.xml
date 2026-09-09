@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for blogBackend" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/4.1.0/spring-boot-configuration-processor-4.1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/openfeign/querydsl/querydsl-apt/7.1/querydsl-apt-7.1-jpa.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/openfeign/querydsl/querydsl-codegen/7.1/querydsl-codegen-7.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/openfeign/querydsl/querydsl-core/7.1/querydsl-core-7.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.7.12/reactor-core-3.7.12.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/openfeign/querydsl/querydsl-codegen-utils/7.1/querydsl-codegen-utils-7.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.43.0/ecj-3.43.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1.MR/jakarta.inject-api-2.0.1.MR.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/github/classgraph/classgraph/4.8.184/classgraph-4.8.184.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.2.0/jakarta.persistence-api-3.2.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/3.0.0/jakarta.annotation-api-3.0.0.jar" />
+        </processorPath>
+        <module name="blogBackend" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blogBackend" options="-parameters" />
+    </option>
+  </component>
+</project>

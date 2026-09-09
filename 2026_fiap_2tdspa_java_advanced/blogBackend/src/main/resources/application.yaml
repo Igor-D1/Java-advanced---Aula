@@ -8,8 +8,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    username: admin
+    password: admin
 
     # ===============================
     # CONNECTION POOL CONFIGURATION (HikariCP)
@@ -95,10 +95,6 @@ spring:
     format:
       date: yyyy-MM-dd
       date-time: yyyy-MM-dd HH:mm:ss
-  web:
-    error:
-      include-stacktrace: on_param
-      include-message: always
 
 
 # ===============================
@@ -109,6 +105,10 @@ server:
 
   servlet:
     context-path: /
+
+  error:
+    include-message: always
+    include-stacktrace: on_param
 
   compression:
     enabled: true
@@ -183,4 +183,4 @@ springdoc:
 
     license:
       name: Apache 2.0
-      url: <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noreferrer noopener" title="https://www.apache.org/licenses/license-2.0" target="_blank">https://www.apache.org/licenses/LICENSE-2.0</a>
+      url: https://www.apache.org/licenses/LICENSE-2.0

@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Configuration
 public class DataLoader {
 
     List<String> sampleNames = Arrays.asList(
@@ -77,7 +78,7 @@ public class DataLoader {
 
                 User user = new User();
                 user.setName(name);
-                user.setEmail("orlando@gmail.com" + 1);
+                user.setEmail("orlando@gmail.com" + i);
                 user.setPassword("P@ssword" + i);
                 user.setRoles(Set.of(finalRoles.get(random.nextInt(finalRoles.size()))));
 

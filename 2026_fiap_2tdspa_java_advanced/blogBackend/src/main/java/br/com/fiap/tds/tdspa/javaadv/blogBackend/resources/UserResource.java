@@ -5,15 +5,15 @@ import br.com.fiap.tds.tdspa.javaadv.blogBackend.resources.dtos.UserDTO;
 import br.com.fiap.tds.tdspa.javaadv.blogBackend.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.annotations.Parameter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -62,6 +62,55 @@ public class UserResource {
         return ResponseEntity.created(location).body(UserDTO.fromEntity(savedUser));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<UserDTO> update(@PathVariable UUID id, @Valid @RequestBody UserDTO userDTO){
+        if( !this.userService.existsById(id))
+            return ResponseEntity.notFound().build();
 
+        User user = UserDTO.fromDTO(userDTO);
+        user.setId(id);
+        User updatedUSer = this.userService.persist(user);
+        return ResponseEntity.ok(UserDTO.fromEntity(updatedUSer));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<UserDTO> partialUpdate(@PathVariable UUID id, @Valid @RequestBody Map<String, Object> updates){
+        if( !this.userService.existsById(id))
+            return ResponseEntity.notFound().build();
+        Optional<User> user = this.userService.partialUpdate(id, updates);
+        return ResponseEntity.ok(user.map(UserDTO::fromEntity).get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable UUID id){
+        if( !this.userService.existsById(id))
+            return ResponseEntity.notFound().build();
+        this.userService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/paged")
+    public ResponseEntity<Page<UserDTO>> findAllPaged(@RequestParam(defaultValue = "0") int page,
+                                                      @RequestParam(defaultValue = "10") int size,
+                                                      @RequestParam(defaultValue = "id") String orderBy,
+                                                      @RequestParam(defaultValue = "asc") String direction) {
+        Page<User> users = this.userService.findAllPaged(page, size, orderBy, direction);
+        return ResponseEntity.ok(users.map(UserDTO::fromEntity));
+    }
+
+    @GetMapping("/paged-default")
+    public ResponseEntity<Page<UserDTO>> findAllPaged(Pageable pageable) {
+        return ResponseEntity.ok(this.userService.findAll(pageable)
+                .map(UserDTO::fromEntity));
+    }
+
+
+    // http://loclahost:8080/api/v1/users?role=ADMIN
+    @GetMapping("/queryByRole")
+    public ResponseEntity<List<UserDTO>> fetchUserByRole( @RequestParam String role){
+        return ResponseEntity.ok(this.userService.findByRole(role)
+                .stream().map(UserDTO::fromEntity)
+                .collect(Collectors.toList()));
+    }
 
 }

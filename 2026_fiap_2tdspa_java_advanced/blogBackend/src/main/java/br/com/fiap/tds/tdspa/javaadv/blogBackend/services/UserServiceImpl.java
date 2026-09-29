@@ -4,10 +4,7 @@ import br.com.fiap.tds.tdspa.javaadv.blogBackend.datasource.repositories.RoleRep
 import br.com.fiap.tds.tdspa.javaadv.blogBackend.datasource.repositories.UserRepository;
 import br.com.fiap.tds.tdspa.javaadv.blogBackend.domainmodel.entities.Role;
 import br.com.fiap.tds.tdspa.javaadv.blogBackend.domainmodel.entities.User;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.hibernate.Hibernate;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

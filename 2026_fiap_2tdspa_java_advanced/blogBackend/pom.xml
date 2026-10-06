@@ -51,7 +51,6 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-restdocs</artifactId>
@@ -67,7 +66,6 @@
 			<artifactId>spring-restdocs-mockmvc</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -89,7 +87,6 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
 		<!--       &lt;!&ndash; BEGIN OF QueryDSL &ndash;&gt;-->
 		<!--       <dependency>-->
 		<!--          <groupId>com.querydsl</groupId>-->
@@ -110,7 +107,6 @@
 		<!--       </dependency>-->
 		<!-- END OF QueryDSL -->
 
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
@@ -126,7 +122,6 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- OpenFeign QueryDSL fork -->
 		<dependency>
 			<groupId>io.github.openfeign.querydsl</groupId>
@@ -134,7 +129,6 @@
 			<version>7.1</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -199,25 +193,20 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-
 					<generatedSourcesDirectory>
 						${project.build.directory}/generated-sources/annotations
 					</generatedSourcesDirectory>
-
 					<annotationProcessorPaths>
-
 						<!-- Lombok -->
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
-
 						<!-- Spring Configuration Processor -->
 						<path>
 							<groupId>org.springframework.boot</groupId>
 							<artifactId>spring-boot-configuration-processor</artifactId>
 						</path>
-
 						<!-- QueryDSL 7.1 -->
 						<path>
 							<groupId>io.github.openfeign.querydsl</groupId>
@@ -225,11 +214,9 @@
 							<version>7.1</version>
 							<classifier>jpa</classifier>
 						</path>
-
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
